@@ -77,8 +77,8 @@ cmodal:bind('', 'tab', 'Toggle Cheatsheet', function() spoon.ModalMgr:toggleChea
 if not hsapp_list then
     hsapp_list = {
         {key = 'f', name = 'Finder'},
-        {key = 's', name = 'Safari'},
-        {key = 't', name = 'Terminal'},
+        {key = 'c', name = 'Chrome'},
+        {key = 't', name = 'iTerm'},
         {key = 'v', id = 'com.apple.ActivityMonitor'},
         {key = 'y', id = 'com.apple.systempreferences'},
     }
@@ -101,7 +101,7 @@ for _, v in ipairs(hsapp_list) do
 end
 
 -- Then we register some keybindings with modal supervisor
-hsappM_keys = hsappM_keys or {"alt", "A"}
+hsappM_keys = hsappM_keys or {"cmd", "alt", "A"}
 if string.len(hsappM_keys[2]) > 0 then
     spoon.ModalMgr.supervisor:bind(hsappM_keys[1], hsappM_keys[2], "Enter AppM Environment", function()
         spoon.ModalMgr:deactivateAll()
