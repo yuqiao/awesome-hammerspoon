@@ -101,7 +101,7 @@ for _, v in ipairs(hsapp_list) do
 end
 
 -- Then we register some keybindings with modal supervisor
-hsappM_keys = hsappM_keys or {"cmd", "alt", "A"}
+hsappM_keys = hsappM_keys or { {"cmd", "alt"}, "A"}
 if string.len(hsappM_keys[2]) > 0 then
     spoon.ModalMgr.supervisor:bind(hsappM_keys[1], hsappM_keys[2], "Enter AppM Environment", function()
         spoon.ModalMgr:deactivateAll()
@@ -166,7 +166,7 @@ if spoon.ClipShow then
     end)
 
     -- Register clipshowM with modal supervisor
-    hsclipsM_keys = hsclipsM_keys or {"alt", "C"}
+    hsclipsM_keys = hsclipsM_keys or { {"cmd", "alt"}, "C"}
     if string.len(hsclipsM_keys[2]) > 0 then
         spoon.ModalMgr.supervisor:bind(hsclipsM_keys[1], hsclipsM_keys[2], "Enter clipshowM Environment", function()
             -- We need to take action upon hsclipsM_keys is pressed, since pressing another key to showing ClipShow panel is redundant.
@@ -254,7 +254,7 @@ end
 
 ----------------------------------------------------------------------------------------------------
 -- Register lock screen
-hslock_keys = hslock_keys or {"alt", "L"}
+hslock_keys = hslock_keys or { {"cmd", "alt"}, "L"}
 if string.len(hslock_keys[2]) > 0 then
     spoon.ModalMgr.supervisor:bind(hslock_keys[1], hslock_keys[2], "Lock Screen", function()
         hs.caffeinate.lockScreen()
@@ -299,7 +299,7 @@ if spoon.WinWin then
     cmodal:bind('', '`', 'Center Cursor', function() spoon.WinWin:centerCursor() end)
 
     -- Register resizeM with modal supervisor
-    hsresizeM_keys = hsresizeM_keys or {"alt", "R"}
+    hsresizeM_keys = hsresizeM_keys or {{"cmd", "alt"}, "R"}
     if string.len(hsresizeM_keys[2]) > 0 then
         spoon.ModalMgr.supervisor:bind(hsresizeM_keys[1], hsresizeM_keys[2], "Enter resizeM Environment", function()
             -- Deactivate some modal environments or not before activating a new one
