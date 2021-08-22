@@ -77,8 +77,11 @@ cmodal:bind('', 'tab', 'Toggle Cheatsheet', function() spoon.ModalMgr:toggleChea
 if not hsapp_list then
     hsapp_list = {
         {key = 'f', name = 'Finder'},
-        {key = 'c', name = 'Chrome'},
+        {key = 'b', name = 'Chrome'},
         {key = 't', name = 'iTerm'},
+        {key = 'c', name = 'code'},
+        {key = 'o', name = 'obsidian'},
+        {key = 'i', name = 'IntelliJ IDEA'},
         {key = 'v', id = 'com.apple.ActivityMonitor'},
         {key = 'y', id = 'com.apple.systempreferences'},
     }
@@ -166,7 +169,7 @@ if spoon.ClipShow then
     end)
 
     -- Register clipshowM with modal supervisor
-    hsclipsM_keys = hsclipsM_keys or { {"cmd", "alt"}, "C"}
+    hsclipsM_keys = hsclipsM_keys or { {"ctrl","cmd", "alt"}, "C"}
     if string.len(hsclipsM_keys[2]) > 0 then
         spoon.ModalMgr.supervisor:bind(hsclipsM_keys[1], hsclipsM_keys[2], "Enter clipshowM Environment", function()
             -- We need to take action upon hsclipsM_keys is pressed, since pressing another key to showing ClipShow panel is redundant.
@@ -338,7 +341,7 @@ end
 ----------------------------------------------------------------------------------------------------
 -- Register AClock
 if spoon.AClock then
-    hsaclock_keys = hsaclock_keys or {"alt", "T"}
+    hsaclock_keys = hsaclock_keys or {{"cmd", "alt"}, "T"}
     if string.len(hsaclock_keys[2]) > 0 then
         spoon.ModalMgr.supervisor:bind(hsaclock_keys[1], hsaclock_keys[2], "Toggle Floating Clock", function() spoon.AClock:toggleShow() end)
     end
